@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; 
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#page-content-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar-wrapper {
+    width: 260px;
+    min-width: 260px;
+    background-color: #435ebe; 
+    display: flex;
+    flex-direction: column;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1040;
+}
+
+.sidebar-heading { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+.logo-circle {
+    width: 40px; height: 40px;
+    background-color: #ffc107; color: #333;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; font-weight: 700;
+}
+
+.sidebar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.8rem 1.5rem;
+    display: flex; align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav .nav-link i { width: 24px; }
+.sidebar-nav .nav-link:hover, .sidebar-nav .nav-link.active {
+    color: white; background-color: rgba(255, 255, 255, 0.05);
+}
+.sidebar-nav .nav-link.active {
+    border-left: 4px solid #ffc107;
+    padding-left: calc(1.5rem - 4px); font-weight: 600;
+}
+
+/* Topbar Styling */
+.topbar { background: white; border-bottom: 1px solid #e9ecef; }
+.search-bar { background-color: #f3f4f6; border: none; border-radius: 20px; padding: 0.5rem 1rem 0.5rem 2.5rem; }
+.search-wrapper { position: relative; }
+.search-wrapper i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af; }
+
+/* Cards & Tables */
+.card { border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+.table th { font-size: 0.85rem; text-transform: capitalize; color: #6b7280; border-bottom-width: 1px; }
+.table td { vertical-align: middle; }
+.progress { background-color: #e5e7eb; border-radius: 10px; }
+.progress-bar.bg-warning { background-color: #ffc107 !important; }
+.badge-active { background-color: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+
+/* === MOBILE RESPONSIVENESS === */
+@media (max-width: 768px) {
+    .sidebar-wrapper {
+        position: fixed;
+        height: 100vh;
+        transform: translateX(-100%); /* Hide off-screen by default */
+    }
+    
+    /* Class added via JS to slide the sidebar in */
+    .sidebar-wrapper.toggled {
+        transform: translateX(0);
+    }
+
+    /* Dark overlay behind sidebar on mobile */
+    .sidebar-overlay {
+        display: none; position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.5); z-index: 1030;
+    }
+    .sidebar-overlay.active { display: block; }
+}
