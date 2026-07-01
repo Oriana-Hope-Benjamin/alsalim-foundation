@@ -17,6 +17,9 @@
         <a href="{{ route('admin.blogs.index') }}" class="nav-link text-decoration-none {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
             <i class="fas fa-rss"></i> Blogs
         </a>
+        <a href="{{ route('admin.events.index') }}" class="nav-link text-decoration-none {{ request()->routeIs('admin.events.*') ? 'active' : '' }}">
+            <i class="fas fa-calendar-alt"></i> Events
+        </a>
         <a href="#" class="nav-link text-decoration-none">
             <i class="fas fa-cog"></i> Settings
         </a>

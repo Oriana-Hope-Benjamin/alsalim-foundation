@@ -39,8 +39,8 @@
                 <a href="{{ url('/about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
                 <a href="{{ url('/causes') }}" class="nav-item nav-link {{ request()->is('causes') ? 'active' : '' }}">Causes</a>
                 <a href="{{ url('/blog') }}" class="nav-item nav-link {{ request()->is('blog') ? 'active' : '' }}">Blog</a>
-                
-                <div class="nav-item dropdown">
+
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu">
                         <a href="#" class="dropdown-item">Detail Page</a>
@@ -49,7 +49,7 @@
                         <a href="#" class="dropdown-item">Donate Now</a>
                         <a href="#" class="dropdown-item">Become A Volunteer</a>
                     </div>
-                </div>
+                </div> -->
                 <a href="{{ url('/contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact</a>
             </div>
         </div>

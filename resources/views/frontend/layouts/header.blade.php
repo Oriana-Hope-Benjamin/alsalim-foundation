@@ -1,57 +1,18 @@
-<div class="top-bar d-none d-md-block">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="top-bar-left">
-                    <div class="text">
-                        <i class="fa fa-phone-alt"></i>
-                        <p>+123 456 7890</p>
-                    </div>
-                    <div class="text">
-                        <i class="fa fa-envelope"></i>
-                        <p>info@alsalimfoundation.org</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="top-bar-right">
-                    <div class="social">
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a href="{{ url('/') }}" class="navbar-brand">Alsalim Foundation</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<meta charset="utf-8">
+<title>@yield('title', 'Alsalim Foundation - Charity Website')</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Alsalim Foundation, Charity, Non-profit, Donation" name="keywords">
+<meta content="Official website of the Alsalim Foundation." name="description">
 
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav ml-auto">
-                <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
-                <a href="{{ url('/about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
-                <a href="{{ url('/causes') }}" class="nav-item nav-link {{ request()->is('causes') ? 'active' : '' }}">Causes</a>
-                <a href="{{ url('/blog') }}" class="nav-item nav-link {{ request()->is('blog') ? 'active' : '' }}">Blog</a>
-                
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Detail Page</a>
-                        <a href="#" class="dropdown-item">What We Do</a>
-                        <a href="#" class="dropdown-item">Meet The Team</a>
-                        <a href="#" class="dropdown-item">Donate Now</a>
-                        <a href="#" class="dropdown-item">Become A Volunteer</a>
-                    </div>
-                </div>
-                <a href="{{ url('/contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact</a>
-            </div>
-        </div>
-    </div>
-</div>
+<link href="{{ asset('img/favicon.ico') }}" rel="icon">
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">

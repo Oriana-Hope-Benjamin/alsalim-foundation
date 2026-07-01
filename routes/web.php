@@ -3,15 +3,21 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EventController;
 use App\Models\Cause;
 use Illuminate\Support\Facades\Route;
-use App\Models\Blog; // Add this line!
+use App\Models\Blog;
+use App\Models\Event;
 
 // ==========================================
 // 1. PUBLIC FRONTEND ROUTES
 // ==========================================
 Route::get('/', function () {
-    return view('frontend.index');
+    return view('frontend.index', [
+        'causes' => Cause::latest()->get(), // Fetches the latest causes
+        'blogs' => Blog::latest()->get(),   // Fetches the latest blogs
+        'events' => Event::latest()->get(), // Fetches the latest events
+    ]);
 });
 
 Route::get('/about', function () {
@@ -40,6 +46,11 @@ Route::get('/contact', function () {
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     
     // The Dashboard Route
+    Route::get('/', function () {
+        $causes = Cause::latest()->get();
+        return view('admin.dashboard', compact('causes'));
+    })->name('dashboard');
+
     Route::get('/dashboard', function () {
         $causes = Cause::latest()->get();
         return view('admin.dashboard', compact('causes'));
@@ -48,6 +59,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // The CRUD Routes
     Route::resource('causes', CauseController::class)->except(['show']);
     Route::resource('blogs', BlogController::class)->except(['show']);
+    Route::resource('events', EventController::class)->except(['show']);
 });
 
 

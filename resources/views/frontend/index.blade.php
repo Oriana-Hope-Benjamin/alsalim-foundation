@@ -2,27 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>HELPZ - Free Charity Website Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- CSS Libraries -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+   @include('frontend.layouts.header')
 </head>
 
 <body>
@@ -58,21 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carousel-2.jpg" alt="Image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1>Get Involved with helping hand</h1>
-                        <p>
-                            Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
-                        </p>
-                        <div class="carousel-btn">
-                            <a class="btn btn-custom" href="">Donate Now</a>
-                            <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="carousel-item">
                     <div class="carousel-img">
                         <img src="img/carousel-3.jpg" alt="Image">
@@ -290,102 +256,42 @@
                 <h2>Let's know about charity causes around the world</h2>
             </div>
             <div class="owl-carousel causes-carousel">
+                @forelse($causes as $cause)
                 <div class="causes-item">
                     <div class="causes-img">
-                        <img src="img/causes-1.jpg" alt="Image">
+                        <img src="{{ $cause->image ? asset('storage/' . $cause->image) : asset('img/causes-4.jpg') }}" alt="{{ $cause->title }}">
                     </div>
+
                     <div class="causes-progress">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                <span>85%</span>
+                            <div class="progress-bar"
+                                role="progressbar"
+                                aria-valuenow="{{ $cause->progress_percentage }}"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                style="width: {{ $cause->progress_percentage }}%;">
+                                <span>{{ $cause->progress_percentage }}%</span>
                             </div>
                         </div>
                         <div class="progress-text">
-                            <p><strong>Raised:</strong> $100000</p>
-                            <p><strong>Goal:</strong> $50000</p>
+                            <p><strong>Raised:</strong> ${{ number_format($cause->amount_raised) }}</p>
+                            <p><strong>Goal:</strong> ${{ number_format($cause->goal_amount) }}</p>
                         </div>
                     </div>
+
                     <div class="causes-text">
-                        <h3>Lorem ipsum dolor sit</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
+                        <h3>{{ $cause->title }}</h3>
+                        <p>{{ \Illuminate\Support\Str::limit($cause->description, 120) }}</p>
                     </div>
+
                     <div class="causes-btn">
-                        <a class="btn btn-custom">Learn More</a>
-                        <a class="btn btn-custom">Donate Now</a>
+                        <a href="#" class="btn btn-custom">Learn More</a>
+                        <a href="#" class="btn btn-custom">Donate Now</a>
                     </div>
                 </div>
-                <div class="causes-item">
-                    <div class="causes-img">
-                        <img src="img/causes-2.jpg" alt="Image">
-                    </div>
-                    <div class="causes-progress">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                        <div class="progress-text">
-                            <p><strong>Raised:</strong> $100000</p>
-                            <p><strong>Goal:</strong> $50000</p>
-                        </div>
-                    </div>
-                    <div class="causes-text">
-                        <h3>Lorem ipsum dolor sit</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
-                    </div>
-                    <div class="causes-btn">
-                        <a class="btn btn-custom">Learn More</a>
-                        <a class="btn btn-custom">Donate Now</a>
-                    </div>
-                </div>
-                <div class="causes-item">
-                    <div class="causes-img">
-                        <img src="img/causes-3.jpg" alt="Image">
-                    </div>
-                    <div class="causes-progress">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                        <div class="progress-text">
-                            <p><strong>Raised:</strong> $100000</p>
-                            <p><strong>Goal:</strong> $50000</p>
-                        </div>
-                    </div>
-                    <div class="causes-text">
-                        <h3>Lorem ipsum dolor sit</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
-                    </div>
-                    <div class="causes-btn">
-                        <a class="btn btn-custom">Learn More</a>
-                        <a class="btn btn-custom">Donate Now</a>
-                    </div>
-                </div>
-                <div class="causes-item">
-                    <div class="causes-img">
-                        <img src="img/causes-4.jpg" alt="Image">
-                    </div>
-                    <div class="causes-progress">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                        <div class="progress-text">
-                            <p><strong>Raised:</strong> $100000</p>
-                            <p><strong>Goal:</strong> $50000</p>
-                        </div>
-                    </div>
-                    <div class="causes-text">
-                        <h3>Lorem ipsum dolor sit</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
-                    </div>
-                    <div class="causes-btn">
-                        <a class="btn btn-custom">Learn More</a>
-                        <a class="btn btn-custom">Donate Now</a>
-                    </div>
-                </div>
+                @empty
+                <p class="text-center">No causes available yet.</p>
+                @endforelse
             </div>
         </div>
     </div>
@@ -449,44 +355,42 @@
                 <h2>Be ready for our upcoming charity events</h2>
             </div>
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="event-item">
-                        <img src="img/event-1.jpg" alt="Image">
+
+                @forelse($events as $event)
+                <div class="col-lg-6 mb-4">
+                    <div class="event-item h-100">
+                        <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('img/event-2.jpg') }}" alt="{{ $event->title }}" style="height: 250px; width: 100%; object-fit: cover;">
+
                         <div class="event-content">
                             <div class="event-meta">
-                                <p><i class="fa fa-calendar-alt"></i>01-Jan-45</p>
-                                <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                <p><i class="fa fa-map-marker-alt"></i>New York</p>
+                                <p><i class="fa fa-calendar-alt"></i>{{ $event->event_date->format('d-M-y') }}</p>
+
+                                <p>
+                                    <i class="far fa-clock"></i>
+                                    {{ $event->start_time->format('H:i') }}
+                                    @if($event->end_time)
+                                    - {{ $event->end_time->format('H:i') }}
+                                    @endif
+                                </p>
+
+                                <p><i class="fa fa-map-marker-alt"></i>{{ Str::limit($event->location, 15) }}</p>
                             </div>
                             <div class="event-text">
-                                <h3>Lorem ipsum dolor sit</h3>
+                                <h3>{{ $event->title }}</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                    {{ Str::limit($event->description, 120) }}
                                 </p>
-                                <a class="btn btn-custom" href="">Join Now</a>
+                                <a class="btn btn-custom" href="#">Join Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="event-item">
-                        <img src="img/event-2.jpg" alt="Image">
-                        <div class="event-content">
-                            <div class="event-meta">
-                                <p><i class="fa fa-calendar-alt"></i>01-Jan-45</p>
-                                <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                <p><i class="fa fa-map-marker-alt"></i>New York</p>
-                            </div>
-                            <div class="event-text">
-                                <h3>Lorem ipsum dolor sit</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                </p>
-                                <a class="btn btn-custom" href="">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
+                @empty
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">No upcoming events are scheduled at the moment. Please check back later!</p>
                 </div>
+                @endforelse
+
             </div>
         </div>
     </div>
@@ -733,57 +637,27 @@
                 <h2>Latest news & articles directly from our blog</h2>
             </div>
             <div class="row">
+                @forelse($blogs as $blog)
                 <div class="col-lg-4">
                     <div class="blog-item">
                         <div class="blog-img">
-                            <img src="img/blog-1.jpg" alt="Image">
+                            <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('img/blog-3.jpg') }}" alt="{{ $blog->title }}">
                         </div>
                         <div class="blog-text">
-                            <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
+                            <h3><a href="#">{{ $blog->title }}</a></h3>
+                            <p>{{ \Illuminate\Support\Str::limit($blog->description, 120) }}</p>
                         </div>
                         <div class="blog-meta">
-                            <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                            <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                            <p><i class="fa fa-user"></i><a href="">{{ $blog->uploaded_by }}</a></p>
+                            <p><i class="fa fa-calendar"></i><a href="">{{ $blog->created_at->format('M d, Y') }}</a></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-2.jpg" alt="Image">
-                        </div>
-                        <div class="blog-text">
-                            <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                        </div>
-                        <div class="blog-meta">
-                            <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                            <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                        </div>
-                    </div>
+                @empty
+                <div class="col-12 text-center">
+                    <p>No blog posts available yet.</p>
                 </div>
-                <div class="col-lg-4">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-3.jpg" alt="Image">
-                        </div>
-                        <div class="blog-text">
-                            <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                        </div>
-                        <div class="blog-meta">
-                            <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                            <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </div>
