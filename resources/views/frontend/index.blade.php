@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   @include('frontend.layouts.header')
+    @include('frontend.layouts.header')
 </head>
 
 <body>
@@ -285,15 +285,58 @@
                     </div>
 
                     <div class="causes-btn">
-                        <a href="#" class="btn btn-custom">Learn More</a>
+                        <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#causeModal{{ $cause->id }}">Learn More</a>
                         <a href="#" class="btn btn-custom">Donate Now</a>
                     </div>
                 </div>
+
                 @empty
                 <p class="text-center">No causes available yet.</p>
                 @endforelse
             </div>
         </div>
+        @foreach($causes as $cause)
+        <div class="modal fade" id="causeModal{{ $cause->id }}" tabindex="-1" role="dialog" aria-labelledby="causeModalLabel{{ $cause->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content" style="border-radius: 15px; border: none;">
+
+                    <div class="modal-header bg-light border-0">
+                        <h5 class="modal-title font-weight-bold" id="causeModalLabel{{ $cause->id }}">{{ $cause->title }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body p-4 p-md-5">
+                        <img src="{{ $cause->image ? asset('storage/' . $cause->image) : asset('img/causes-4.jpg') }}" alt="{{ $cause->title }}" class="img-fluid rounded mb-4 w-100 shadow-sm" style="object-fit: cover; max-height: 400px;">
+
+                        <div class="bg-light p-3 rounded mb-4 shadow-sm">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="font-weight-bold text-dark">Raised: ${{ number_format($cause->amount_raised) }}</span>
+                                <span class="font-weight-bold text-muted">Goal: ${{ number_format($cause->goal_amount) }}</span>
+                            </div>
+                            <div class="progress" style="height: 10px; border-radius: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: {{ $cause->progress_percentage }}%; background-color: #FDBE33;" aria-valuenow="{{ $cause->progress_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <h5 class="font-weight-bold text-dark mb-3">About this Cause</h5>
+                        <p class="text-dark" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;">{{ $cause->description }}</p>
+                    </div>
+
+                    <div class="modal-footer border-0 bg-light">
+                        <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
+                        <a href="#" class="btn btn-custom px-4">Donate Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    </div>
+
+    </div>
     </div>
     <!-- Causes End -->
 
@@ -665,67 +708,7 @@
 
 
     <!-- Footer Start -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-contact">
-                        <h2>Our Head Office</h2>
-                        <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope"></i>info@example.com</p>
-                        <div class="footer-social">
-                            <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2>Popular Links</h2>
-                        <a href="">About Us</a>
-                        <a href="">Contact Us</a>
-                        <a href="">Popular Causes</a>
-                        <a href="">Upcoming Events</a>
-                        <a href="">Latest Blog</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2>Useful Links</h2>
-                        <a href="">Terms of use</a>
-                        <a href="">Privacy policy</a>
-                        <a href="">Cookies</a>
-                        <a href="">Help</a>
-                        <a href="">FQAs</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-newsletter">
-                        <h2>Newsletter</h2>
-                        <form>
-                            <input class="form-control" placeholder="Email goes here">
-                            <button class="btn btn-custom">Submit</button>
-                            <label>Don't worry, we don't spam!</label>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container copyright">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
-                </div>
-                <div class="col-md-6">
-                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    @extends('frontend.layouts.footer')
     <!-- Footer End -->
 
     <!-- Back to top button -->
