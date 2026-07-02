@@ -681,27 +681,73 @@
             </div>
             <div class="row">
                 @forelse($blogs as $blog)
-                <div class="col-lg-4">
-                    <div class="blog-item">
+                <div class="col-lg-4 mb-4">
+                    <div class="blog-item h-100">
                         <div class="blog-img">
-                            <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('img/blog-3.jpg') }}" alt="{{ $blog->title }}">
+                            <a href="#" data-toggle="modal" data-target="#blogModal{{ $blog->id }}">
+                                <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('img/blog-3.jpg') }}" alt="{{ $blog->title }}" style="width: 100%; height: 250px; object-fit: cover;">
+                            </a>
                         </div>
                         <div class="blog-text">
-                            <h3><a href="#">{{ $blog->title }}</a></h3>
+                            <h3><a href="#" data-toggle="modal" data-target="#blogModal{{ $blog->id }}">{{ $blog->title }}</a></h3>
                             <p>{{ \Illuminate\Support\Str::limit($blog->description, 120) }}</p>
                         </div>
                         <div class="blog-meta">
-                            <p><i class="fa fa-user"></i><a href="">{{ $blog->uploaded_by }}</a></p>
-                            <p><i class="fa fa-calendar"></i><a href="">{{ $blog->created_at->format('M d, Y') }}</a></p>
+                            <p><i class="fa fa-user"></i><a href="#">{{ $blog->uploaded_by }}</a></p>
+                            <p><i class="fa fa-calendar"></i><a href="#">{{ $blog->created_at->format('M d, Y') }}</a></p>
                         </div>
                     </div>
                 </div>
                 @empty
-                <div class="col-12 text-center">
-                    <p>No blog posts available yet.</p>
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">No blog posts available yet.</p>
                 </div>
                 @endforelse
             </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            @foreach($blogs as $blog)
+            <div class="modal fade" id="blogModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="blogModalLabel{{ $blog->id }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content" style="border-radius: 15px; border: none;">
+
+                        <div class="modal-header bg-light border-0">
+                            <h5 class="modal-title font-weight-bold" id="blogModalLabel{{ $blog->id }}">{{ $blog->title }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body p-4 p-md-5">
+                            <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('img/blog-3.jpg') }}" alt="{{ $blog->title }}" class="img-fluid rounded mb-4 w-100 shadow-sm" style="object-fit: cover; max-height: 400px;">
+
+                            <div class="d-flex justify-content-between mb-4 text-muted small border-bottom pb-2">
+                                <span><i class="fa fa-user mr-1 text-primary"></i> {{ $blog->uploaded_by }}</span>
+                                <span><i class="fa fa-calendar mr-1 text-primary"></i> {{ $blog->created_at->format('M d, Y') }}</span>
+                            </div>
+
+                            <p class="text-dark" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;">{{ $blog->description }}</p>
+                        </div>
+
+                        <div class="modal-footer border-0 bg-light">
+                            <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
     <!-- Blog End -->
