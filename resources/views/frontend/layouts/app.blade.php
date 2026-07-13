@@ -5,11 +5,11 @@
                 <div class="top-bar-left">
                     <div class="text">
                         <i class="fa fa-phone-alt"></i>
-                        <p>+123 456 7890</p>
+                        <p>+256782032641</p>
                     </div>
                     <div class="text">
                         <i class="fa fa-envelope"></i>
-                        <p>info@alsalimfoundation.org</p>
+                        <p>alsalimwelfarefoundation@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                     <div class="social">
                         <a href=""><i class="fab fa-twitter"></i></a>
                         <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href=""><i class="fab fa-whatsapp"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
 </div>
 <div class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid">
-        <a href="{{ url('/') }}" class="navbar-brand">Alsalim Foundation</a>
+        <a href="{{ url('/') }}" class="navbar-brand">Al-salim</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>

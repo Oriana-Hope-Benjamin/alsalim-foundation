@@ -37,7 +37,7 @@
 
 
     <!-- Service Start -->
-    <div class="service">
+  <div class="service">
         <div class="container">
             <div class="section-header text-center">
                 <p>What We Do?</p>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Healthy Food</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through generous donations, we provide nutritious food and essential supplies to vulnerable families, helping reduce hunger and improve health within our communities.</p>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Pure Water</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through donations, we support clean water initiatives by improving access to safe drinking water and sanitation, helping communities live healthier and safer lives.</p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Health Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through charitable donations, we help provide essential healthcare services, medical outreach, health education, and basic treatment for people in need.</p>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Primary Education</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through the support of donors, we provide school fees, learning materials, uniforms, and educational opportunities that help children build a brighter future.</p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Residence Facilities</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through donations, we assist vulnerable families with safe shelter, housing improvements, and basic household necessities to promote security and dignity.</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Social Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through the generosity of our donors, we support orphans, older adults, people with disabilities, and vulnerable families by providing care, essential assistance, and programs that restore hope and strengthen communities.</p>
                         </div>
                     </div>
                 </div>

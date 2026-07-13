@@ -1,7 +1,7 @@
 <meta charset="utf-8">
-<title>@yield('title', 'Alsalim Foundation - Charity Website')</title>
+<title>@yield('title', 'Al-salim Welfare Foundation')</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Alsalim Foundation, Charity, Non-profit, Donation" name="keywords">
+<meta content="Alsalim Welfare Foundation, Charity, Non-profit, Donation" name="keywords">
 <meta content="Official website of the Alsalim Foundation." name="description">
 
 <link href="{{ asset('img/favicon.ico') }}" rel="icon">

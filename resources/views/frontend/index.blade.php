@@ -28,53 +28,25 @@
                         <img src="img/carousel-1.jpg" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        <h1>Let's be kind for children</h1>
+                        <h1>Al-salim Welfare Foundation</h1>
                         <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                             dedicated to transforming lives through compassion, community support, and sustainable hope for a better tomorrow.
                         </p>
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="">Donate Now</a>
-                            <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                           
                         </div>
                     </div>
                 </div>
 
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carousel-3.jpg" alt="Image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1>Bringing smiles to millions</h1>
-                        <p>
-                            Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
-                        </p>
-                        <div class="carousel-btn">
-                            <a class="btn btn-custom" href="">Donate Now</a>
-                            <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>
     <!-- Carousel End -->
 
     <!-- Video Modal Start-->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!---->
     <!-- Video Modal End -->
 
 
@@ -105,13 +77,13 @@
 
                         <div class="tab-content">
                             <div id="tab-content-1" class="container tab-pane active">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae pellentesque turpis. Donec in hendrerit dui, vel blandit massa. Ut vestibulum suscipit cursus. Cras quis porta nulla, ut placerat risus. Aliquam nec magna eget velit luctus dictum. Phasellus et felis sed purus tristique dignissim. Morbi sit amet leo at purus accumsan pellentesque. Vivamus fermentum nisi vel dapibus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Alsalim Welfare Foundation is a nonprofit organization committed to improving lives and strengthening communities through compassion, service, and sustainable development. We work with individuals, families, volunteers, and partners to provide meaningful support where it is needed most.
                             </div>
                             <div id="tab-content-2" class="container tab-pane fade">
-                                Sed tincidunt, magna ut vehicula volutpat, turpis diam condimentum justo, posuere congue turpis massa in mi. Proin ornare at massa at fermentum. Nunc aliquet sed nisi iaculis ornare. Nam semper tortor eget est egestas, eu sagittis nunc sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent bibendum sapien sed purus molestie malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                               To improve lives by providing compassionate humanitarian support, empowering vulnerable communities, and promoting sustainable development through service, partnership, and integrity.
                             </div>
                             <div id="tab-content-3" class="container tab-pane fade">
-                                Aliquam dolor odio, mollis sed feugiat sit amet, feugiat ut sapien. Nunc eu dignissim lorem. Suspendisse at hendrerit enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed condimentum semper turpis vel facilisis. Nunc vel faucibus orci. Mauris ut mauris rhoncus, efficitur nisi at, venenatis quam. Praesent egestas pretium enim sit amet finibus. Curabitur at erat molestie, tincidunt lorem eget, consequat ligula.
+                             To create a world where every individual and community has the opportunity to live with dignity, hope, and equal access to a better future.
                             </div>
                         </div>
                     </div>
@@ -137,7 +109,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Healthy Food</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through generous donations, we provide nutritious food and essential supplies to vulnerable families, helping reduce hunger and improve health within our communities.</p>
                         </div>
                     </div>
                 </div>
@@ -148,7 +120,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Pure Water</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through donations, we support clean water initiatives by improving access to safe drinking water and sanitation, helping communities live healthier and safer lives.</p>
                         </div>
                     </div>
                 </div>
@@ -159,7 +131,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Health Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through charitable donations, we help provide essential healthcare services, medical outreach, health education, and basic treatment for people in need.</p>
                         </div>
                     </div>
                 </div>
@@ -170,7 +142,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Primary Education</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through the support of donors, we provide school fees, learning materials, uniforms, and educational opportunities that help children build a brighter future.</p>
                         </div>
                     </div>
                 </div>
@@ -181,7 +153,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Residence Facilities</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through donations, we assist vulnerable families with safe shelter, housing improvements, and basic household necessities to promote security and dignity.</p>
                         </div>
                     </div>
                 </div>
@@ -192,7 +164,7 @@
                         </div>
                         <div class="service-text">
                             <h3>Social Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Through the generosity of our donors, we support orphans, older adults, people with disabilities, and vulnerable families by providing care, essential assistance, and programs that restore hope and strengthen communities.</p>
                         </div>
                     </div>
                 </div>
@@ -202,8 +174,8 @@
     <!-- Service End -->
 
 
-    <!-- Facts Start -->
-    <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
+    <!-- 
+     <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -245,6 +217,7 @@
             </div>
         </div>
     </div>
+   -->
     <!-- Facts End -->
 
 
@@ -342,51 +315,7 @@
 
 
     <!-- Donate Start -->
-    <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="donate-content">
-                        <div class="section-header">
-                            <p>Donate Now</p>
-                            <h2>Let's donate to needy people for better lives</h2>
-                        </div>
-                        <div class="donate-text">
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="donate-form">
-                        <form>
-                            <div class="control-group">
-                                <input type="text" class="form-control" placeholder="Name" required="required" />
-                            </div>
-                            <div class="control-group">
-                                <input type="email" class="form-control" placeholder="Email" required="required" />
-                            </div>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-custom active">
-                                    <input type="radio" name="options" checked> $10
-                                </label>
-                                <label class="btn btn-custom">
-                                    <input type="radio" name="options"> $20
-                                </label>
-                                <label class="btn btn-custom">
-                                    <input type="radio" name="options"> $30
-                                </label>
-                            </div>
-                            <div>
-                                <button class="btn btn-custom" type="submit">Donate Now</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- Donate End -->
 
 
@@ -441,7 +370,9 @@
 
 
     <!-- Team Start -->
-    <div class="team">
+    
+    <!--
+     <div class="team">
         <div class="container">
             <div class="section-header text-center">
                 <p>Meet Our Team</p>
@@ -519,117 +450,17 @@
             </div>
         </div>
     </div>
+   -->
     <!-- Team End -->
 
 
     <!-- Volunteer Start -->
-    <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="volunteer-form">
-                        <form>
-                            <div class="control-group">
-                                <input type="text" class="form-control" placeholder="Name" required="required" />
-                            </div>
-                            <div class="control-group">
-                                <input type="email" class="form-control" placeholder="Email" required="required" />
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control" placeholder="Why you want to become a volunteer?" required="required"></textarea>
-                            </div>
-                            <div>
-                                <button class="btn btn-custom" type="submit">Become a volunteer</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="volunteer-content">
-                        <div class="section-header">
-                            <p>Become A Volunteer</p>
-                            <h2>Let’s make a difference in the lives of others</h2>
-                        </div>
-                        <div class="volunteer-text">
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- Volunteer End -->
 
 
     <!-- Testimonial Start -->
-    <div class="testimonial">
-        <div class="container">
-            <div class="section-header text-center">
-                <p>Testimonial</p>
-                <h2>What people are talking about our charity activities</h2>
-            </div>
-            <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="img/testimonial-2.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="img/testimonial-3.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-profile">
-                        <img src="img/testimonial-4.jpg" alt="Image">
-                        <div class="testimonial-name">
-                            <h3>Person Name</h3>
-                            <p>Profession</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
     <!-- Testimonial End -->
 
 
