@@ -12,7 +12,7 @@
                             <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
                             <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-custom" href=""><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
