@@ -30,16 +30,16 @@
                     <div class="carousel-text">
                         <h1>Al-salim Welfare Foundation</h1>
                         <p>
-                             dedicated to transforming lives through compassion, community support, and sustainable hope for a better tomorrow.
+                            dedicated to transforming lives through compassion, community support, and sustainable hope for a better tomorrow.
                         </p>
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="">Donate Now</a>
-                           
+
                         </div>
                     </div>
                 </div>
 
-               
+
             </div>
         </div>
     </div>
@@ -80,10 +80,10 @@
                                 Alsalim Welfare Foundation is a nonprofit organization committed to improving lives and strengthening communities through compassion, service, and sustainable development. We work with individuals, families, volunteers, and partners to provide meaningful support where it is needed most.
                             </div>
                             <div id="tab-content-2" class="container tab-pane fade">
-                               To improve lives by providing compassionate humanitarian support, empowering vulnerable communities, and promoting sustainable development through service, partnership, and integrity.
+                                To improve lives by providing compassionate humanitarian support, empowering vulnerable communities, and promoting sustainable development through service, partnership, and integrity.
                             </div>
                             <div id="tab-content-3" class="container tab-pane fade">
-                             To create a world where every individual and community has the opportunity to live with dignity, hope, and equal access to a better future.
+                                To create a world where every individual and community has the opportunity to live with dignity, hope, and equal access to a better future.
                             </div>
                         </div>
                     </div>
@@ -315,7 +315,7 @@
 
 
     <!-- Donate Start -->
-    
+
     <!-- Donate End -->
 
 
@@ -331,12 +331,14 @@
                 @forelse($events as $event)
                 <div class="col-lg-6 mb-4">
                     <div class="event-item h-100">
-                        <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('img/event-2.jpg') }}" alt="{{ $event->title }}" style="height: 250px; width: 100%; object-fit: cover;">
+                        <!-- Image acts as a modal trigger -->
+                        <a href="#" data-toggle="modal" data-target="#eventModal{{ $event->id }}">
+                            <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('img/event-2.jpg') }}" alt="{{ $event->title }}" style="height: 250px; width: 100%; object-fit: cover;">
+                        </a>
 
                         <div class="event-content">
                             <div class="event-meta">
                                 <p><i class="fa fa-calendar-alt"></i>{{ $event->event_date->format('d-M-y') }}</p>
-
                                 <p>
                                     <i class="far fa-clock"></i>
                                     {{ $event->start_time->format('H:i') }}
@@ -344,15 +346,16 @@
                                     - {{ $event->end_time->format('H:i') }}
                                     @endif
                                 </p>
-
                                 <p><i class="fa fa-map-marker-alt"></i>{{ Str::limit($event->location, 15) }}</p>
                             </div>
                             <div class="event-text">
-                                <h3>{{ $event->title }}</h3>
+                                <!-- Title acts as a modal trigger -->
+                                <h3><a href="#" class="text-dark" data-toggle="modal" data-target="#eventModal{{ $event->id }}">{{ $event->title }}</a></h3>
                                 <p>
                                     {{ Str::limit($event->description, 120) }}
                                 </p>
-                                <a class="btn btn-custom" href="#">Join Now</a>
+                                <!-- Changed to Read More and added modal attributes -->
+                                <a class="btn btn-custom" href="#" data-toggle="modal" data-target="#eventModal{{ $event->id }}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -364,13 +367,83 @@
                 @endforelse
 
             </div>
+
+            <!-- ========================================== -->
+            <!-- MODALS FOR EVENTS (Generated outside the grid) -->
+            <!-- ========================================== -->
+            <!-- ========================================== -->
+<!-- MODALS FOR EVENTS (Generated outside the grid) -->
+<!-- ========================================== -->
+@foreach($events as $event)
+    <div class="modal fade" id="eventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel{{ $event->id }}" aria-hidden="true">
+        <!-- Added mx-auto and px-2 to ensure the modal stays centered and doesn't touch the exact edges of a phone screen -->
+        <div class="modal-dialog modal-lg modal-dialog-centered mx-auto px-2" role="document">
+            <div class="modal-content overflow-hidden" style="border-radius: 15px; border: none;">
+                
+                <!-- Modal Header -->
+                <div class="modal-header bg-light border-0 px-3 px-md-4">
+                    <h5 class="modal-title font-weight-bold" id="eventModalLabel{{ $event->id }}">{{ $event->title }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Modal Body (Reduced mobile padding from p-4 to p-3 to widen content) -->
+                <div class="modal-body p-3 p-md-5">
+                    <!-- Full Cover Image -->
+                    <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('img/event-2.jpg') }}" alt="{{ $event->title }}" class="img-fluid rounded mb-4 w-100 shadow-sm" style="object-fit: cover; max-height: 400px;">
+                    
+                    <!-- Event Schedule & Location Box -->
+                    <!-- Added text-center for mobile, text-md-left for desktop -->
+                    <div class="bg-light p-3 p-md-4 rounded mb-4 shadow-sm text-center text-md-left">
+                        <div class="row text-dark">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <i class="fa fa-calendar-alt text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
+                                <strong class="d-block d-md-inline">Date:</strong><br class="d-none d-md-inline">
+                                <span class="text-muted">{{ $event->event_date->format('M d, Y') }}</span>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <i class="far fa-clock text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
+                                <strong class="d-block d-md-inline">Time:</strong><br class="d-none d-md-inline">
+                                <span class="text-muted">
+                                    {{ $event->start_time->format('h:i A') }} 
+                                    @if($event->end_time)
+                                        - {{ $event->end_time->format('h:i A') }}
+                                    @endif
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fa fa-map-marker-alt text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
+                                <strong class="d-block d-md-inline">Location:</strong><br class="d-none d-md-inline">
+                                <span class="text-muted">{{ $event->location }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Full Event Details -->
+                    <h5 class="font-weight-bold text-dark mb-3 text-center text-md-left">Event Details</h5>
+                    <p class="text-dark" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;">{{ $event->description }}</p>
+                </div>
+
+                <!-- Modal Footer -->
+                <!-- Centered buttons on mobile, right-aligned on desktop -->
+                <div class="modal-footer border-0 bg-light d-flex justify-content-center justify-content-md-end">
+                    <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+@endforeach
+<!-- ========================================== -->            <!-- ========================================== -->
+
         </div>
     </div>
     <!-- Event End -->
 
 
     <!-- Team Start -->
-    
+
     <!--
      <div class="team">
         <div class="container">
@@ -460,7 +533,7 @@
 
 
     <!-- Testimonial Start -->
-  
+
     <!-- Testimonial End -->
 
 
