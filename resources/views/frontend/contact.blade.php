@@ -43,32 +43,61 @@
                 <p>Get In Touch</p>
                 <h2>Contact for any query</h2>
             </div>
-            <div class="contact-img">
-                <img src="img/contact.jpg" alt="Image">
+
+            <div class="contact-img mb-5">
+                <!-- Ensure your image uses the asset() helper -->
+                <img src="{{ asset('img/contact.jpg') }}" alt="Contact Image">
             </div>
+
             <div class="contact-form">
-                <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                        <p class="help-block text-danger"></p>
+
+                <!-- Success Message Display -->
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+
+                <!-- The Form -->
+                <form action="{{ route('contact.store') }}" method="POST">
+                    @csrf <!-- CRITICAL: CSRF Protection -->
+
+                    <div class="control-group mb-3">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}" placeholder="Your Name" required />
+                        @error('name')
+                        <p class="text-danger small mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div class="control-group">
-                        <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                        <p class="help-block text-danger"></p>
+
+                    <div class="control-group mb-3">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}" placeholder="Your Email" required />
+                        @error('email')
+                        <p class="text-danger small mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                        <p class="help-block text-danger"></p>
+
+                    <div class="control-group mb-3">
+                        <input type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" id="subject" value="{{ old('subject') }}" placeholder="Subject" required />
+                        @error('subject')
+                        <p class="text-danger small mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div class="control-group">
-                        <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                        <p class="help-block text-danger"></p>
+
+                    <div class="control-group mb-3">
+                        <textarea class="form-control @error('message') is-invalid @enderror" name="message" id="message" rows="5" placeholder="Message" required>{{ old('message') }}</textarea>
+                        @error('message')
+                        <p class="text-danger small mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div>
-                        <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
+                        <button class="btn btn-custom" type="submit">Send Message</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

@@ -20,6 +20,9 @@
         <a href="{{ route('admin.events.index') }}" class="nav-link text-decoration-none {{ request()->routeIs('admin.events.*') ? 'active' : '' }}">
             <i class="fas fa-calendar-alt"></i> Events
         </a>
+        <a href="{{ route('admin.contacts.index') }}" class="nav-link text-decoration-none {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+            <i class="fas fa-address-book"></i> Contacts
+        </a>
         <a href="#" class="nav-link text-decoration-none">
             <i class="fas fa-cog"></i> Settings
         </a>

@@ -11,9 +11,19 @@
     </div>
 
     <div class="d-flex align-items-center gap-3 gap-md-4">
-        <a href="#" class="text-secondary d-none d-sm-block"><i class="far fa-bell fs-5"></i></a>
+        <!-- Updated Bell Icon with Dynamic Badge[cite: 1] -->
+        <a href="{{ route('admin.contacts.index') }}" class="text-secondary d-none d-sm-block position-relative">
+            <i class="far fa-bell fs-5"></i>
+            @if($unreadCount > 0)
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                {{ $unreadCount }}
+            </span>
+            @endif
+        </a>
+
         <a href="#" class="text-secondary d-none d-sm-block"><i class="far fa-question-circle fs-5"></i></a>
 
+        <!-- Profile Dropdown[cite: 1] -->
         <div class="dropdown border-start ps-3 ps-md-4">
             <a href="#" class="d-flex align-items-center text-decoration-none text-dark dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
 

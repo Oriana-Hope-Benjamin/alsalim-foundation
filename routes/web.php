@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CauseController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ContactController;
 use App\Models\Cause;
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
@@ -39,6 +40,10 @@ Route::get('/contact', function () {
     return view('frontend.contact');
 });
 
+Route::post('/contact/submit', [ContactController::class, 'store'])
+    ->name('contact.store')
+    ->middleware('throttle:5,1');
+
 
 // ==========================================
 // 2. ADMIN DASHBOARD & CRUD ROUTES (PROTECTED)
@@ -60,6 +65,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('causes', CauseController::class)->except(['show']);
     Route::resource('blogs', BlogController::class)->except(['show']);
     Route::resource('events', EventController::class)->except(['show']);
+    Route::resource('contacts', ContactController::class)->only(['index', 'destroy']);
+
+    // ==========================================
+    // INBOX & CONTACT ROUTES
+    // ==========================================
+    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::post('/contacts/{contact}/mark-as-read', [ContactController::class, 'markAsRead'])->name('contacts.markAsRead');
+    Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 });
 
 
