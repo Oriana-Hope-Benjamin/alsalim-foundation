@@ -11,7 +11,7 @@ class Contact extends Model
     // Only allow these specific fields to be saved to the database
     protected $fillable = [
         'name',
-        'email',
+        'whatsapp_number', // Updated field
         'subject',
         'message',
         'is_read',

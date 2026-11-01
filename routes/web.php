@@ -5,7 +5,9 @@ use App\Http\Controllers\CauseController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ServiceController;
 use App\Models\Cause;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
 use App\Models\Event;
@@ -18,6 +20,7 @@ Route::get('/', function () {
         'causes' => Cause::latest()->get(), // Fetches the latest causes
         'blogs' => Blog::latest()->get(),   // Fetches the latest blogs
         'events' => Event::latest()->get(), // Fetches the latest events
+        'services' => Service::latest()->get(), // Fetches the latest services
     ]);
 });
 
@@ -28,6 +31,11 @@ Route::get('/about', function () {
 Route::get('/causes', function () {
     $causes = Cause::latest()->get(); // Gets the newest causes first
     return view('frontend.causes', compact('causes'));
+});
+
+Route::get('/services', function () {
+    $services = Service::latest()->get(); // Gets the newest services first
+    return view('frontend.services', compact('services'));
 });
 
 // UPDATED: Fetch blogs and pass them to the view
@@ -66,6 +74,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('blogs', BlogController::class)->except(['show']);
     Route::resource('events', EventController::class)->except(['show']);
     Route::resource('contacts', ContactController::class)->only(['index', 'destroy']);
+    Route::resource('services', ServiceController::class)->except(['show']);
 
     // ==========================================
     // INBOX & CONTACT ROUTES

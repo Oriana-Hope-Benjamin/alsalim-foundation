@@ -32,9 +32,9 @@ class ContactController extends Controller
         // 1. Strict Validation
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'whatsapp_number' => 'required|string|max:20', // Changed to string validation for phone numbers
             'subject' => 'required|string|max:255',
-            'message' => 'required|string|max:2000', // Limit message length
+            'message' => 'required|string|max:2000',
         ]);
 
         // 2. Securely save to database

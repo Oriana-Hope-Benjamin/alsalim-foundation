@@ -63,7 +63,7 @@
 
                 <!-- The Form -->
                 <form action="{{ route('contact.store') }}" method="POST">
-                    @csrf <!-- CRITICAL: CSRF Protection -->
+                    @csrf
 
                     <div class="control-group mb-3">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}" placeholder="Your Name" required />
@@ -72,9 +72,10 @@
                         @enderror
                     </div>
 
+                    <!-- Replaced Email with WhatsApp Number -->
                     <div class="control-group mb-3">
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}" placeholder="Your Email" required />
-                        @error('email')
+                        <input type="text" class="form-control @error('whatsapp_number') is-invalid @enderror" name="whatsapp_number" id="whatsapp_number" value="{{ old('whatsapp_number') }}" placeholder="Your WhatsApp Number (e.g., +256...)" required />
+                        @error('whatsapp_number')
                         <p class="text-danger small mt-1">{{ $message }}</p>
                         @enderror
                     </div>

@@ -14,6 +14,9 @@
         <a href="{{ route('admin.causes.index') }}" class="nav-link text-decoration-none {{ request()->routeIs('admin.causes.*') ? 'active' : '' }}">
             <i class="fas fa-hand-holding-heart"></i> Causes
         </a>
+        <a href="{{ route('admin.services.index') }}" class="nav-link text-decoration-none {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
+            <i class="fas fa-hands-helping"></i> Services
+        </a>
         <a href="{{ route('admin.blogs.index') }}" class="nav-link text-decoration-none {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
             <i class="fas fa-rss"></i> Blogs
         </a>
@@ -29,13 +32,13 @@
     </nav>
 
     <div class="p-4 border-top border-secondary mt-auto">
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <a href="{{ route('logout') }}" 
-           onclick="event.preventDefault(); this.closest('form').submit();" 
-           class="text-white-50 text-decoration-none hover-white d-block">
-            <i class="fas fa-sign-out-alt me-2"></i> Logout
-        </a>
-    </form>
-</div>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a href="{{ route('logout') }}" 
+               onclick="event.preventDefault(); this.closest('form').submit();" 
+               class="text-white-50 text-decoration-none hover-white d-block">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+            </a>
+        </form>
+    </div>
 </div>

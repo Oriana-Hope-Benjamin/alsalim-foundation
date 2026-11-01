@@ -43,8 +43,8 @@
 
                         <td>
                             <h6 class="mb-1 fw-bold {{ $message->is_read ? 'text-dark' : 'text-primary' }}">{{ $message->name }}</h6>
-                            <a href="mailto:{{ $message->email }}" class="small text-muted text-decoration-none">
-                                {{ $message->email }}
+                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $message->whatsapp_number) }}" target="_blank" class="small text-success text-decoration-none">
+                                <i class="fab fa-whatsapp"></i> {{ $message->whatsapp_number }}
                             </a>
                         </td>
 
@@ -91,7 +91,9 @@
                                     <div class="d-flex justify-content-between mb-4 border-bottom pb-3">
                                         <div>
                                             <h6 class="fw-bold mb-0">{{ $message->name }}</h6>
-                                            <a href="mailto:{{ $message->email }}" class="small text-primary text-decoration-none">{{ $message->email }}</a>
+                                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $message->whatsapp_number) }}" target="_blank" class="small text-success text-decoration-none">
+                                                <i class="fab fa-whatsapp"></i> {{ $message->whatsapp_number }}
+                                            </a>
                                         </div>
                                         <div class="text-end text-muted small">
                                             {{ $message->created_at->format('M d, Y') }}<br>
@@ -109,7 +111,12 @@
                                     @else
                                     <div></div> <!-- Empty div to keep the close button on the right -->
                                     @endif
-                                    <button type="button" class="btn btn-secondary px-4 rounded-pill" data-bs-dismiss="modal">Close</button>
+                                    <div class="d-flex gap-2">
+                                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $message->whatsapp_number) }}" target="_blank" class="btn btn-success px-4 rounded-pill">
+                                            <i class="fab fa-whatsapp me-1"></i> Reply on WhatsApp
+                                        </a>
+                                        <button type="button" class="btn btn-secondary px-4 rounded-pill" data-bs-dismiss="modal">Close</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

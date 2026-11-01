@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>@yield('title', 'Al-salim Welfare Foundation')</title>
+<title>@yield('title', 'Baba Machasi')</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="Alsalim Welfare Foundation, Charity, Non-profit, Donation" name="keywords">
 <meta content="Official website of the Alsalim Foundation." name="description">
