@@ -225,81 +225,61 @@
     <div class="causes">
         <div class="container">
             <div class="section-header text-center">
-                <p>Popular Causes</p>
-                <h2>Let's know about charity causes around the world</h2>
+                <p>Our Services</p>
+                <h2>Explore the services we offer to the community</h2>
             </div>
             <div class="owl-carousel causes-carousel">
-                @forelse($causes as $cause)
+                @forelse($services as $service)
                 <div class="causes-item">
                     <div class="causes-img">
-                        <img src="{{ $cause->image ? asset('storage/' . $cause->image) : asset('img/causes-4.jpg') }}" alt="{{ $cause->title }}">
-                    </div>
-
-                    <div class="causes-progress">
-                        <div class="progress">
-                            <div class="progress-bar"
-                                role="progressbar"
-                                aria-valuenow="{{ $cause->progress_percentage }}"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                style="width: {{ $cause->progress_percentage }}%;">
-                                <span>{{ $cause->progress_percentage }}%</span>
-                            </div>
-                        </div>
-                        <div class="progress-text">
-                            <p><strong>Raised:</strong> ${{ number_format($cause->amount_raised) }}</p>
-                            <p><strong>Goal:</strong> ${{ number_format($cause->goal_amount) }}</p>
-                        </div>
+                        <img src="{{ $service->image ? asset('storage/' . $service->image) : asset('img/causes-4.jpg') }}" alt="{{ $service->title }}">
                     </div>
 
                     <div class="causes-text">
-                        <h3>{{ $cause->title }}</h3>
-                        <p>{{ \Illuminate\Support\Str::limit($cause->description, 120) }}</p>
+                        <h3>{{ $service->title }}</h3>
+                        <p>{{ \Illuminate\Support\Str::limit($service->description, 120) }}</p>
                     </div>
 
                     <div class="causes-btn">
-                        <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#causeModal{{ $cause->id }}">Learn More</a>
-                        <a href="#" class="btn btn-custom">Donate Now</a>
+                        <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#serviceModal{{ $service->id }}">Learn More</a>
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $service->whatsapp_number) }}" target="_blank" class="btn btn-custom">WhatsApp Us</a>
                     </div>
                 </div>
-
                 @empty
-                <p class="text-center">No causes available yet.</p>
+                <p class="text-center w-100">No services available yet.</p>
                 @endforelse
             </div>
         </div>
-        @foreach($causes as $cause)
-        <div class="modal fade" id="causeModal{{ $cause->id }}" tabindex="-1" role="dialog" aria-labelledby="causeModalLabel{{ $cause->id }}" aria-hidden="true">
+
+        @foreach($services as $service)
+        <div class="modal fade" id="serviceModal{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="serviceModalLabel{{ $service->id }}" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content" style="border-radius: 15px; border: none;">
 
                     <div class="modal-header bg-light border-0">
-                        <h5 class="modal-title font-weight-bold" id="causeModalLabel{{ $cause->id }}">{{ $cause->title }}</h5>
+                        <h5 class="modal-title font-weight-bold" id="serviceModalLabel{{ $service->id }}">{{ $service->title }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
 
                     <div class="modal-body p-4 p-md-5">
-                        <img src="{{ $cause->image ? asset('storage/' . $cause->image) : asset('img/causes-4.jpg') }}" alt="{{ $cause->title }}" class="img-fluid rounded mb-4 w-100 shadow-sm" style="object-fit: cover; max-height: 400px;">
+                        <img src="{{ $service->image ? asset('storage/' . $service->image) : asset('img/causes-4.jpg') }}" alt="{{ $service->title }}" class="img-fluid rounded mb-4 w-100 shadow-sm" style="object-fit: cover; max-height: 400px;">
 
-                        <div class="bg-light p-3 rounded mb-4 shadow-sm">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="font-weight-bold text-dark">Raised: ${{ number_format($cause->amount_raised) }}</span>
-                                <span class="font-weight-bold text-muted">Goal: ${{ number_format($cause->goal_amount) }}</span>
-                            </div>
-                            <div class="progress" style="height: 10px; border-radius: 5px;">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $cause->progress_percentage }}%; background-color: #FDBE33;" aria-valuenow="{{ $cause->progress_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                        <div class="bg-light p-3 rounded mb-4 shadow-sm text-center">
+                            <h6 class="font-weight-bold mb-0">
+                                <i class="fab fa-whatsapp text-success fa-lg mr-2"></i>
+                                Reach us directly on WhatsApp: <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $service->whatsapp_number) }}" target="_blank" class="text-dark">{{ $service->whatsapp_number }}</a>
+                            </h6>
                         </div>
 
-                        <h5 class="font-weight-bold text-dark mb-3">About this Cause</h5>
-                        <p class="text-dark" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;">{{ $cause->description }}</p>
+                        <h5 class="font-weight-bold text-dark mb-3">About this Service</h5>
+                        <p class="text-dark" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;">{{ $service->description }}</p>
                     </div>
 
                     <div class="modal-footer border-0 bg-light">
                         <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
-                        <a href="#" class="btn btn-custom px-4">Donate Now</a>
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $service->whatsapp_number) }}" target="_blank" class="btn btn-custom px-4"><i class="fab fa-whatsapp"></i> Chat Now</a>
                     </div>
 
                 </div>
@@ -372,70 +352,70 @@
             <!-- MODALS FOR EVENTS (Generated outside the grid) -->
             <!-- ========================================== -->
             <!-- ========================================== -->
-<!-- MODALS FOR EVENTS (Generated outside the grid) -->
-<!-- ========================================== -->
-@foreach($events as $event)
-    <div class="modal fade" id="eventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel{{ $event->id }}" aria-hidden="true">
-        <!-- Added mx-auto and px-2 to ensure the modal stays centered and doesn't touch the exact edges of a phone screen -->
-        <div class="modal-dialog modal-lg modal-dialog-centered mx-auto px-2" role="document">
-            <div class="modal-content overflow-hidden" style="border-radius: 15px; border: none;">
-                
-                <!-- Modal Header -->
-                <div class="modal-header bg-light border-0 px-3 px-md-4">
-                    <h5 class="modal-title font-weight-bold" id="eventModalLabel{{ $event->id }}">{{ $event->title }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+            <!-- MODALS FOR EVENTS (Generated outside the grid) -->
+            <!-- ========================================== -->
+            @foreach($events as $event)
+            <div class="modal fade" id="eventModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel{{ $event->id }}" aria-hidden="true">
+                <!-- Added mx-auto and px-2 to ensure the modal stays centered and doesn't touch the exact edges of a phone screen -->
+                <div class="modal-dialog modal-lg modal-dialog-centered mx-auto px-2" role="document">
+                    <div class="modal-content overflow-hidden" style="border-radius: 15px; border: none;">
 
-                <!-- Modal Body (Reduced mobile padding from p-4 to p-3 to widen content) -->
-                <div class="modal-body p-3 p-md-5">
-                    <!-- Full Cover Image -->
-                    <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('img/event-2.jpg') }}" alt="{{ $event->title }}" class="img-fluid rounded mb-4 w-100 shadow-sm" style="object-fit: cover; max-height: 400px;">
-                    
-                    <!-- Event Schedule & Location Box -->
-                    <!-- Added text-center for mobile, text-md-left for desktop -->
-                    <div class="bg-light p-3 p-md-4 rounded mb-4 shadow-sm text-center text-md-left">
-                        <div class="row text-dark">
-                            <div class="col-md-4 mb-3 mb-md-0">
-                                <i class="fa fa-calendar-alt text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
-                                <strong class="d-block d-md-inline">Date:</strong><br class="d-none d-md-inline">
-                                <span class="text-muted">{{ $event->event_date->format('M d, Y') }}</span>
-                            </div>
-                            <div class="col-md-4 mb-3 mb-md-0">
-                                <i class="far fa-clock text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
-                                <strong class="d-block d-md-inline">Time:</strong><br class="d-none d-md-inline">
-                                <span class="text-muted">
-                                    {{ $event->start_time->format('h:i A') }} 
-                                    @if($event->end_time)
-                                        - {{ $event->end_time->format('h:i A') }}
-                                    @endif
-                                </span>
-                            </div>
-                            <div class="col-md-4">
-                                <i class="fa fa-map-marker-alt text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
-                                <strong class="d-block d-md-inline">Location:</strong><br class="d-none d-md-inline">
-                                <span class="text-muted">{{ $event->location }}</span>
-                            </div>
+                        <!-- Modal Header -->
+                        <div class="modal-header bg-light border-0 px-3 px-md-4">
+                            <h5 class="modal-title font-weight-bold" id="eventModalLabel{{ $event->id }}">{{ $event->title }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+
+                        <!-- Modal Body (Reduced mobile padding from p-4 to p-3 to widen content) -->
+                        <div class="modal-body p-3 p-md-5">
+                            <!-- Full Cover Image -->
+                            <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('img/event-2.jpg') }}" alt="{{ $event->title }}" class="img-fluid rounded mb-4 w-100 shadow-sm" style="object-fit: cover; max-height: 400px;">
+
+                            <!-- Event Schedule & Location Box -->
+                            <!-- Added text-center for mobile, text-md-left for desktop -->
+                            <div class="bg-light p-3 p-md-4 rounded mb-4 shadow-sm text-center text-md-left">
+                                <div class="row text-dark">
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <i class="fa fa-calendar-alt text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
+                                        <strong class="d-block d-md-inline">Date:</strong><br class="d-none d-md-inline">
+                                        <span class="text-muted">{{ $event->event_date->format('M d, Y') }}</span>
+                                    </div>
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <i class="far fa-clock text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
+                                        <strong class="d-block d-md-inline">Time:</strong><br class="d-none d-md-inline">
+                                        <span class="text-muted">
+                                            {{ $event->start_time->format('h:i A') }}
+                                            @if($event->end_time)
+                                            - {{ $event->end_time->format('h:i A') }}
+                                            @endif
+                                        </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-map-marker-alt text-primary mb-2 mb-md-0 mr-md-2 fs-5"></i>
+                                        <strong class="d-block d-md-inline">Location:</strong><br class="d-none d-md-inline">
+                                        <span class="text-muted">{{ $event->location }}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Full Event Details -->
+                            <h5 class="font-weight-bold text-dark mb-3 text-center text-md-left">Event Details</h5>
+                            <p class="text-dark" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;">{{ $event->description }}</p>
+                        </div>
+
+                        <!-- Modal Footer -->
+                        <!-- Centered buttons on mobile, right-aligned on desktop -->
+                        <div class="modal-footer border-0 bg-light d-flex justify-content-center justify-content-md-end">
+                            <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
+                        </div>
+
                     </div>
-                    
-                    <!-- Full Event Details -->
-                    <h5 class="font-weight-bold text-dark mb-3 text-center text-md-left">Event Details</h5>
-                    <p class="text-dark" style="white-space: pre-line; line-height: 1.8; font-size: 1.05rem;">{{ $event->description }}</p>
                 </div>
-
-                <!-- Modal Footer -->
-                <!-- Centered buttons on mobile, right-aligned on desktop -->
-                <div class="modal-footer border-0 bg-light d-flex justify-content-center justify-content-md-end">
-                    <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
-                </div>
-
             </div>
-        </div>
-    </div>
-@endforeach
-<!-- ========================================== -->            <!-- ========================================== -->
+            @endforeach
+            <!-- ========================================== --> <!-- ========================================== -->
 
         </div>
     </div>
